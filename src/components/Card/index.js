@@ -14,8 +14,11 @@ export default function Card({data,index,listIndex}) {
       isDragging: monitor.isDragging()
     })
   });
-  const [,dropRef] = useDrop({
+  const [{isDrop},dropRef] = useDrop({
     accept: 'CARD',
+    collect: monitor=>({
+      isDrop: monitor.canDrop(),
+    }),
     hover(item,monitor){
       const dragListIndex = item.listIndex;
       const dropListIndex = listIndex;
@@ -30,21 +33,21 @@ export default function Card({data,index,listIndex}) {
 
       const draggedofset = monitor.getClientOffset();
       const draggedtop   = (draggedofset.y-targetsize.top);
+      if(dragindex < dropindex && draggedtop < targetcenter && dragListIndex === dropListIndex){
+        return;
+      }
+      if(dragindex > dropindex && draggedtop > targetcenter && dragListIndex === dropListIndex){
+        return;
+      }
 
-      if(dragindex < dropindex && draggedtop < targetcenter){
-        return;
-      }
-      if(dragindex > dropindex && draggedtop > targetcenter){
-        return;
-      }
-      move(dragListIndex,dragindex,dropListIndex,dropindex);
-      item.index = dropindex;
-      item.listIndex = dropListIndex;
+        move(dragListIndex,dragindex,dropListIndex,dropindex);
+        item.index = dropindex;
+        item.listIndex = dropListIndex;
     }
   });
   dragRef(dropRef(ref));
   return (
-    <Container ref={ref} isDragging={isDragging}>
+    <Container ref={ref} isDragging={isDragging} isdrop={isDrop}>
         <header>
           <Label color={data.color} />
             <h5>{data.card_id}-{data.card_title}</h5>

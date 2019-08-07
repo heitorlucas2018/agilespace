@@ -7,25 +7,28 @@ import Card from '../Card';
 
 export default function List({ data, index: listindex }) {
    const cards = data.cards;
-   const { movelist } = useContext(boardContext);
+   const { movelist,addcard } = useContext(boardContext);
    const [,dropListRef] = useDrop({
             accept: 'CARD',
             hover(item,monitor){
              if(cards.length !== 0){
                     return;
-                }else{
-                    movelist(item.listIndex,item.index,listindex,0);
-                    item.index = 0;
-                    item.listIndex = listindex;
                 }
+
+            movelist(item.listIndex,item.index,listindex,0);
+            item.index = 0;
+            item.listIndex = listindex;
             
             }
       });
+      function botao(data) {
+             addcard(listindex,0,[]);
+      }
   return (
       <Container>
           <header>
               <h4>{data.list_title}</h4>
-              <button type="button">
+              <button type="button" onClick={botao}>
                   <MdAdd  size={24} color="#fff"/>
               </button>
           </header>

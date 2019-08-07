@@ -30,6 +30,10 @@ export const Container = styled.div `
             cursor:pointer;
             align-items: center;
        }
+       button:hover{
+           
+        background: #fff;
+       }
    }
 
    ul{

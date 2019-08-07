@@ -42,7 +42,22 @@ export const Container = styled.div`
       border-radius: 0;
       background: transparent;
       box-shadow: none;
-      cursor: grabbing;
+      cursor: 'move';
+
+      p, div, header, footer{
+        opacity: 0;
+      }
+    `
+  }
+  
+  ${
+    props => props.isDrop && css`
+      border: 2px dashed rgba(0,0,0,0.2);
+      padding-top: 30px;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      cursor: 'move';
 
       p, div, header, footer{
         opacity: 0;
