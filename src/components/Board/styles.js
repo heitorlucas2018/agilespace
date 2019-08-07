@@ -8,4 +8,8 @@ export const Container = styled.div`
     scroll-margin: initial;
     overflow-x: auto;
 
+    ul{
+        height:100%;
+    }
+
 `;

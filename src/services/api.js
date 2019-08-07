@@ -30,7 +30,7 @@ export function loadList() {
         "list_title":"Aprovado",
         "cards":[
               {
-                "card_id":"#123456",
+                "card_id":"#12345",
                 "card_title":"Bug",
                 "card_data":"informações de detalhes",
                 "score":"0..9",
@@ -40,7 +40,7 @@ export function loadList() {
               
               },
               {
-                "card_id":"#1234",
+                "card_id":"#123456",
                 "card_title":"titulo do cartão",
                 "card_data":"informações de detalhes",
                 "score":"0..9",
