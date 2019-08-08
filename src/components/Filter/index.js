@@ -17,13 +17,15 @@ export default function index() {
                     aria-controls="filter-collapse-menu"
                     aria-expanded={open}
                 >
-                  <FiFilter/>  Filters
+                  <FiFilter size={20}/>
                 </Button>
+                
                 <Collapse in={open}>
                     <div id="filter-collapse-menu">
                         <Forms />
                     </div>
                 </Collapse>
+                
         </Container>
     )
 }

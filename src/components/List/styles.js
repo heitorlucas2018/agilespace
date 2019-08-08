@@ -29,9 +29,8 @@ export const Container = styled.div `
             cursor:pointer;
             align-items: center;
        }
-       button:hover{
-           
-        background: #fff;
+       button:hover{           
+        background: #479a4a;
        }
    }
 

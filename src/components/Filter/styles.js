@@ -19,6 +19,7 @@ export const Container = styled.div`
             cursor:pointer;
             align-items: initial;
             font-size: small;
+            float: right;
        }
     .btn:hover{
         background: #3d739e !important;
