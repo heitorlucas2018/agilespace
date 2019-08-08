@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div `
-   height:100%;
    padding: 0 15px;
    flex: 0 0 300px;
    
@@ -38,5 +37,6 @@ export const Container = styled.div `
 
    ul{
        margin-top:20px;
+       height: 100%;
    }
 `;

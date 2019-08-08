@@ -20,7 +20,7 @@ export default function Forms() {
                 </Col>
                 <Col xs={12} sm={3} md={2}>
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Status</Form.Label>
+                    <Form.Label>Titles</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
                 </Form.Group>
                 </Col>

@@ -55,7 +55,7 @@ export function loadList() {
           "list_title":"Teste",
           "cards":[
                 {
-                  "card_id":"#12345",
+                  "card_id":"#1234a5",
                   "card_title":"Bug",
                   "card_data":"informações de detalhes",
                   "score":"0..9",
@@ -65,7 +65,7 @@ export function loadList() {
                 
                 },
                 {
-                  "card_id":"#123456",
+                  "card_id":"#12345a6",
                   "card_title":"titulo do cartão",
                   "card_data":"informações de detalhes",
                   "score":"0..9",

@@ -11,10 +11,11 @@ export default function List({ data, index: listindex }) {
    const [,dropListRef] = useDrop({
             accept: 'CARD',
             hover(item,monitor){
+
+                console.log('mov')
              if(cards.length !== 0){
                     return;
                 }
-
             movelist(item.listIndex,item.index,listindex,0);
             item.index = 0;
             item.listIndex = listindex;

@@ -5,10 +5,5 @@ export const Container = styled.div`
     display: flex;
     padding: 30px 0;
     scroll-margin: initial;
-    overflow-x: auto;
-
-    ul{
-        height:100%;
-    }
-
+    overflow-y: hidden;
 `;
