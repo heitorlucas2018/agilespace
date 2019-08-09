@@ -4,7 +4,6 @@ import Board  from '../Board/';
 import Forme   from '../Forms/';
 import Filter from '../Filter/';
 import { FiTrello,FiServer,FiPieChart,FiClipboard } from "react-icons/fi";
-
 import { Container,Navbar,Main,Content, Sidebar } from './styles';
 
 export default function index() {
@@ -24,7 +23,7 @@ export default function index() {
                         <Filter/>
                     <Content>
                         <Board />
-                           <Sidebar >
+                           <Sidebar isOpen={true} >
                                <Forme/>
                            </Sidebar>
                     </Content>

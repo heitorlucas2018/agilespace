@@ -5,6 +5,7 @@ import GlobalStyle from './styles/global.js';
 import Sidebar from './components/Sidebar';
 
 function App() {
+
     return (
         <DndProvider backend={HTMl5backend}>
             <Sidebar/>
@@ -12,4 +13,4 @@ function App() {
         </DndProvider>
      );
 }
-export default App
+export default App;

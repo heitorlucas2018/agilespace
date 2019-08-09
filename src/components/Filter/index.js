@@ -1,19 +1,24 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState } from 'react';
+import React, {Component } from 'react';
 import { Collapse,Button } from 'react-bootstrap';
 import { Container } from './styles';
 import { FiFilter } from 'react-icons/fi';
 import Forms    from '../Forms';
+import { connect } from 'react-redux';
 
-export default function index() {
-
-    const [open, setOpen] = useState(false);
-
+class index extends Component {
+constructor(){
+    const open = {};
+    function onClickAction(data){
+        console.log('teste click => ',data);
+            
+    }
+    
     return (
         <Container>
               <Button
                     variant="flat" 
-                    onClick={() => setOpen(!open)}
+                    onClick={() => onClickAction(!open)}
                     aria-controls="filter-collapse-menu"
                     aria-expanded={open}
                 >
@@ -21,7 +26,7 @@ export default function index() {
                 </Button>
                 
                 <Collapse in={open}>
-                    <div id="filter-collapse-menu">
+                    <div id="filter-collapse-menu" >
                         <Forms />
                     </div>
                 </Collapse>
@@ -29,3 +34,18 @@ export default function index() {
         </Container>
     )
 }
+}
+
+const mapStateToProps = (state) => {
+        console.log('state => ',state);
+        return{
+            myMsg : state.msg,
+            data: state.data
+        }
+
+}
+const mapDispatchToProps = (dispatch) => {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(index)

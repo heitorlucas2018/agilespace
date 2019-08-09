@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled,{ css } from 'styled-components';
 
 export const Container = styled.div`
     display:flex;
@@ -23,7 +23,7 @@ export const Navbar = styled.nav`
     }
     ul li:hover{
         align-items: center;
-        color: #848383;
+        color: #4d8bbd;
         cursor: pointer;
     }
 `
@@ -41,7 +41,6 @@ export const Content = styled.div`
     scroll-margin: initial;
     width: 100%;
     height: 100%;
-    
 `
 export const Sidebar = styled.div`  
     z-index: 2;
@@ -50,7 +49,12 @@ export const Sidebar = styled.div`
     will-change: transform;
     overflow-y: auto;
     right: 0px;
-    width: 300px;
     background: #e3e9ef;
     box-shadow: 0 0 10px rgba(107,107,107,0.6);
+
+    ${
+    props => props.isOpen && css`
+      width:300px;
+    `
+  }
 `
