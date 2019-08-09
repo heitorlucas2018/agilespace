@@ -43,18 +43,19 @@ export const Content = styled.div`
     height: 100%;
 `
 export const Sidebar = styled.div`  
-    z-index: 2;
-    padding: 10px;
-    transition: -webkit-transform 0.3s ease-out 0s;
+    z-index: 2;   
+    transition: width 0.5s ease-out 0s;
     will-change: transform;
     overflow-y: auto;
     right: 0px;
+    width: 0px;
     background: #e3e9ef;
     box-shadow: 0 0 10px rgba(107,107,107,0.6);
 
     ${
-    props => props.isOpen && css`
-      width:300px;
-    `
-  }
+        props => props.isOpen && css`
+            padding: 10px;
+            width:300px;
+        `
+    }
 `

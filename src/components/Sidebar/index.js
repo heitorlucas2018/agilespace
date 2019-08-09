@@ -1,13 +1,22 @@
-import React from 'react';
+import React,{ Component } from 'react';
 import Header from '../Header/';
 import Board  from '../Board/';
 import Forme   from '../Forms/';
 import Filter from '../Filter/';
-import { FiTrello,FiServer,FiPieChart,FiClipboard } from "react-icons/fi";
+import { connect } from 'react-redux';
+import { FiTrello,FiServer,FiPieChart,FiClipboard,FiCalendar } from "react-icons/fi";
 import { Container,Navbar,Main,Content, Sidebar } from './styles';
 
-export default function index() {
-
+//export default
+class index extends Component{
+constructor(props){
+        super(props);        
+    }
+componentDidMount(){
+    console.log('Sidebar Motado =>',this.props);
+}
+render(){
+    console.log('Sidebar Motado =>',this.props.data.isOpen)
     return (
         <Container>
             <Navbar>
@@ -16,6 +25,7 @@ export default function index() {
                     <li><FiClipboard size={25} /></li>
                     <li><FiServer size={25} /></li>
                     <li><FiPieChart size={25} /></li>
+                    <li><FiCalendar size={25} /></li>
                 </ul>
             </Navbar>
                 <Main>
@@ -23,7 +33,7 @@ export default function index() {
                         <Filter/>
                     <Content>
                         <Board />
-                           <Sidebar isOpen={true} >
+                           <Sidebar isOpen={this.props.data.isOpen} >
                                <Forme/>
                            </Sidebar>
                     </Content>
@@ -31,4 +41,13 @@ export default function index() {
                 </Main>
         </Container>
     )
+ }
 }
+const mapStateToProps = (state) => {
+    console.log('SideBar state => ',state);
+  return{
+      data: state
+  }
+
+}
+export default connect(mapStateToProps, null)(index);

@@ -1,5 +1,5 @@
 export default (state = {}, action) => {
-    console.log('action => ');
+        console.log('Reduce => ',state,action);
     switch (action.type) {
         case 'hello':
             return action.payload;

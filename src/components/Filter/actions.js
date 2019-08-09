@@ -2,17 +2,15 @@
  * Actions types 
  */
 const btnadd  = 'hello';
-const btnview = 'hello';
+export const btnview = 'hello';
 
 /**
  * Actions creator 
  */
-export const hello = () => {
-    console.log('action');
+export const hello = (type = 'null',data={}) => {
+        console.log('Action executed');
     return{
-        type : btnview,
-        payload: {
-            msg: 'hello word'
-        }
+        type : type,
+        payload: data
     }
 }
