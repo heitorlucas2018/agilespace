@@ -28,6 +28,7 @@ export default function List({ data, index: listindex }) {
   return (
       <Container>
           <header>
+              <h5>{cards.length}</h5>
               <h4>{data.list_title}</h4>
               <button type="button" onClick={botao}>
                   <MdAdd  size={24} color="#fff"/>

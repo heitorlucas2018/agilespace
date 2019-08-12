@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const Navbar = styled.nav`
     height: 100%;
     width: 50px;
-    background: #e3e9ef;
+    background: #ffffff;
     padding: 5px;
     box-shadow: 0 0 10px rgba(107,107,107,0.6);
 
@@ -40,22 +40,5 @@ export const Content = styled.div`
     display:flex;
     scroll-margin: initial;
     width: 100%;
-    height: 100%;
-`
-export const Sidebar = styled.div`  
-    z-index: 2;   
-    transition: width 0.5s ease-out 0s;
-    will-change: transform;
-    overflow-y: auto;
-    right: 0px;
-    width: 0px;
-    background: #e3e9ef;
-    box-shadow: 0 0 10px rgba(107,107,107,0.6);
-
-    ${
-        props => props.isOpen && css`
-            padding: 10px;
-            width:300px;
-        `
-    }
+    height: calc(100% - 72px);
 `

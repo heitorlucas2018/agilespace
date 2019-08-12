@@ -1,7 +1,6 @@
 /**
  * Actions types 
  */
-const btnadd  = 'hello';
 export const btnview = 'hello';
 
 /**

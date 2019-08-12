@@ -1,9 +1,7 @@
-/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react/no-direct-mutation-state */
 import React, {Component } from 'react';
-import { Collapse,Button } from 'react-bootstrap';
 import { Container } from './styles';
 import { FiFilter } from 'react-icons/fi';
-import Forms    from '../Forms';
 import { connect } from 'react-redux';
 import { hello,btnview } from './actions';
 const open = {};
@@ -28,21 +26,14 @@ render(){
     console.log('filter => ',this.props,this.state)
         return (
             <Container>
-                <Button
+                <button
                         variant="flat" 
                         onClick={() => this.onClick(this.state.isOpen)}
                         aria-controls="filter-collapse-menu"
                         aria-expanded={open}
                     >
                     <FiFilter size={20}/>
-                    </Button>
-                    
-                    <Collapse in={false}>
-                        <div id="filter-collapse-menu" >
-                            <Forms />
-                        </div>
-                    </Collapse>
-                    
+                    </button>
             </Container>
         )
     };

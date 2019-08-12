@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div `
-   padding: 0 15px;
+   padding: 1px 15px;
    flex: 0 0 300px;
    
    & + div{
@@ -19,7 +19,15 @@ export const Container = styled.div `
            font-size:16px;
            padding: 0 10px;
        }
-
+       h5{
+            border: 1px solid #c2c6cc;
+            box-shadow: 2px 2px 6px 0px rgba(1,0,0,0.3);
+            background: #ecf1f8;
+            color: #000;
+            padding: 5px;
+            border-radius: 20px;
+            align-items: center;
+       }
        button{
             width:  30px;
             height: 30px;
@@ -36,6 +44,8 @@ export const Container = styled.div `
 
    ul{
        margin-top:20px;
-       height: 100%;
+       height: 88%;
+       overflow-y: auto;
+       padding: 0 5px;
    }
 `;

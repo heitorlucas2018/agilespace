@@ -5,7 +5,7 @@ export default function Header() {
       return (
         <Container>
             <header>
-               <h4> Board Proton </h4>
+               <h4>Cards Board</h4>
             </header>
         </Container>
         

@@ -50,7 +50,7 @@ export default function Card({data,index,listIndex}) {
     <Container ref={ref} isDragging={isDragging} isdrop={isDrop}>
         <header>
           <Label color={data.color} />
-            <h4>{data.card_title}</h4>
+            <span>{data.card_title}</span>
         </header>
         <SubTitle>Status : {data.status} </SubTitle>
           <p>{data.card_data}</p>

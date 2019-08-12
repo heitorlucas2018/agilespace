@@ -1,19 +1,24 @@
 import styled,{css} from 'styled-components';
 
 export const Container = styled.div`
-  position: relative;
+
   background: #fff;
+  border: 0.5px solid #d6d6d6;
   border-radius: 5px;
   margin: 10px 0 0 0;
-  padding: 15px;
+  padding: 10px;
   box-shadow: 0 1px 4px 0 rgba(150, 153, 156, 0.8);
-  border-top: 20px solid rgba(255, 255, 255, 0.4);
   cursor:grab;
 
   header{
-      position: absolute;
-      top: -22px;
-      left:15px;
+      display:flex;
+      flex-flow:row;
+      align-items: center;
+  }
+  header span{
+    font-size: 15;
+    font-weight: bolder;
+    flex:auto;
   }
   p{
       font-weigth:500;
@@ -42,8 +47,7 @@ export const Container = styled.div`
       border-radius: 0;
       background: transparent;
       box-shadow: none;
-      cursor: 'move';
-
+      cursor: move;
       p, div, header, footer{
         opacity: 0;
       }
