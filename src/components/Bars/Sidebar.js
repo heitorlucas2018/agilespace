@@ -5,7 +5,7 @@ import { ContainerSideBar } from './styles';
 
 class Sidebar extends Component{
 constructor(props){
-        super(props);        
+        super(props);
     console.log(props);
     }
 render(){
@@ -18,7 +18,7 @@ render(){
 }
 const mapStateToProps = (state) => {
   return{
-      data: state
+      data: state.Sidbar
   }
 
 }

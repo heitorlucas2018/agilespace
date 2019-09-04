@@ -8,8 +8,8 @@ import { Container,Navbar,Main,Content } from './styles';
 //export default
 class index extends Component{
 constructor(props){
-        super(props);        
-    console.log(props);
+        super(props);
+        //
     }
 render(){
     return (
@@ -27,7 +27,7 @@ render(){
                         <Header/>
                         <Filter/>
                     <Content>
-                     <board />
+                     <Board />
                     </Content>
                         
                 </Main>

@@ -1,59 +1,101 @@
-import React,{ useState } from 'react';
-import produce from 'immer';
-import { loadList } from '../../services/api';
+import React,{ useState, Component } from 'react';
+import Axious from 'axios';
 import List  from '../List';
 import { Container } from './styles';
 import boardContext from './Context';
 import Sidebar from '../Bars/Sidebar';
+import {loadList, move, movelist, addcard, formFilter } from './actions';
+import {connect} from 'react-redux';
+import { inData } from '../../services/action';
 
-const data = loadList();
+const lists = [];
+class Board extends Component {
+  constructor(props){
+      super(props);
+      this.state = {
+        lists: []
+      }
+      this.list = [];
+  }
+  componentDidMount(){
+      const api = Axious.get("http://localhost:3000/api/")
+      .then(response => {
+        this.props.loadlist('ADD_DATA',response.data);
+          this.testeList(response.data)
+      })
+      .then(status => {
+        console.log("2", status);
+        return status;
+      })
+      .catch(msg => {
+        console.error("Error", msg);
+      });
+  }
 
-export default function Board() {
-  const [lists,setlists] = useState(data);
-
-    function move(fromlist,from,tolist,to) {
-      setlists(produce(lists, draft=>{
-        const dragged = draft[fromlist].cards[from];
-        draft[fromlist].cards.splice(from,1);
-        draft[tolist].cards.splice(to,0,dragged);
-        }))
-    };
-    function movelist(fromlist,from,tolist,to) {
-      setlists(produce(lists, draft=>{
-        const dragged = draft[fromlist].cards[from];
-        draft[fromlist].cards.splice(from,1);
-        draft[tolist].cards.splice(to,0,dragged);
-      }));
-    }
-    function addcard(fromlist,from,data) {
-      setlists(produce(lists,draft=>{
-        data.card_id = 'dgahj0';
-        const dragged = data;
-        draft[fromlist].cards.push(dragged)
-      }));
-    }
-    function formFilter(value) {
-      setlists(produce(lists,draft=>{
-         draft.filter((e)=>{
-          e.cards.splice({})
-              const rs = e.cards.filter((e)=>{
-               // console.log(e.card_title,(e.card_title.toLowerCase().indexOf(value.toLowerCase()) > -1))
-                return (e.card_title.toLowerCase().indexOf(value.toLowerCase()) > -1);
-            })
-               e.cards.push(rs)
-                 console.log(rs); 
-              return (rs.length> 0);
-          })
-          console.log(draft.length)
-      }));
-    }
+  testeList(data){
+    console.log('testeList',data)
     
-  return (
-    <boardContext.Provider value={{ lists, move, movelist, addcard, formFilter }}>
-        <Container>
-          { lists.map((list,index) => <List key={list.list_title} index={index} data={list} />)}
-        </Container>
-       <Sidebar/>
-    </boardContext.Provider>
-  );
+  }
+
+  render() {
+    const lists = this.props.lists.payload;
+      console.log('teste',this.props,this.props.lists,lists)
+    if(!this.props.lists.payload){
+      return (
+        <boardContext.Provider value={{ move, movelist, addcard, formFilter }}>
+            <Container>
+            </Container>
+           <Sidebar/>
+        </boardContext.Provider>
+      );
+    }else{
+      return (
+        <boardContext.Provider value={{ move, movelist, addcard, formFilter }}>
+            <Container>
+              { lists.map((list,index) => <List key={list.list_title} index={index} data={list} />)}
+            </Container>
+           <Sidebar/>
+        </boardContext.Provider>
+    );
+    }
+  }
+  
 }
+
+const mapDispatchToProps = (dispatch) => {
+  console.log('load dispatch  board')
+  return {
+      loadlist : (type,data) => dispatch(inData(type,data))
+  }
+}
+
+const mapStateToProps = (state) => {
+    console.log('Board',state.Board);
+  return{
+      lists: state.Board
+  }
+
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Board);
+
+
+
+/**
+ * 
+function connectAPI(data) {
+  const api = Axious.get("http://localhost:3000/api/")
+    .then(response => {
+      return response.data;
+    })
+    .then(status => {
+      console.log("2", status);
+      return status;
+    })
+    .catch(msg => {
+      console.error("Error", msg);
+    });
+}
+
+ * 
+ * 
+ */

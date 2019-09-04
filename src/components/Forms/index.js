@@ -16,6 +16,7 @@ export default function Forms() {
         status:'',
         membro:''
     })
+    
     const { formFilter } = useContext(boadrContext);
     
     const filtros = { titulos: state.titulos, sprints: state.sprints, status : state.status, membro : state.membro}

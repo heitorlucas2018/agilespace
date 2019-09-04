@@ -4,11 +4,12 @@ import { Container } from './styles';
 import { FiFilter } from 'react-icons/fi';
 import { connect } from 'react-redux';
 import { hello,btnview } from './actions';
+
 const open = {};
+
 class index extends Component {
 constructor(props){
         super(props);
-        console.log('Constructor',props)
         this.state = {
             isOpen: false
         }
@@ -18,12 +19,9 @@ onClick = (data) => {
     this.props.onClickAction(btnview,{isOpen:!data});
 };
 componentDidMount() {
-    this.props.onClickAction()
-    console.log('Filter montado => ', this.props, this.state);
-  
+    this.props.onClickAction()  
 }
 render(){
-    console.log('filter => ',this.props,this.state)
         return (
             <Container>
                 <button
@@ -41,7 +39,6 @@ render(){
 
 
 const mapStateToProps = (state) => {
-    console.log('mapStateToProps filter => ',state)
         return{
             msg: state.isOpen
         }
